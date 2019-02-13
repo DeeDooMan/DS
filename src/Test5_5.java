@@ -1,41 +1,30 @@
-import java.util.ArrayList;
+import java.util.Stack;
 
 public class Test5_5 {
     public static void main(String[] args) {
-
-    }
-
-    public static void ker(int kolvoDiskov){
-        ArrayList<Integer> arrayList1 = new ArrayList<Integer>();
-        ArrayList<Integer> arrayList2 = new ArrayList<Integer>();
-        ArrayList<Integer> arrayList3 = new ArrayList<Integer>();
-        arrayList1.add(0,1);
-        arrayList1.add(1,2);
-        arrayList1.add(2,3);
-        arrayList2.add(0,0);
-        arrayList2.add(1,0);
-        arrayList2.add(2,0);
-        arrayList3.add(0,0);
-        arrayList3.add(1,0);
-        arrayList3.add(2,0);
-
-        System.out.println("Matrix:");
-        for (int i =0; i<arrayList1.size(); i++){
-            System.out.println(arrayList1.get(i)+" "+arrayList2.get(i)+" "+arrayList3.get(i));
-        }
+        Stack<Integer> firstTower = new Stack<>();
+        Stack<Integer> helpTower = new Stack<>();
+        Stack<Integer> lastTower = new Stack<>();
+        System.out.println("Ханойская башня:");
+        firstTower.push(3);
+        firstTower.push(2);
+        firstTower.push(1);
+        System.out.println(firstTower);
+        System.out.println(helpTower);
+        System.out.println(lastTower);
         System.out.println();
-
-        int array2Sum = arrayList2.get(0)+arrayList2.get(1)+arrayList2.get(2);
-        int array3Sum = arrayList3.get(0)+arrayList3.get(1)+arrayList3.get(2);
-
-        if (kolvoDiskov==1){
-            arrayList3.set(0,kolvoDiskov);
-        }
-        else if (kolvoDiskov>1) {
-            ker(kolvoDiskov-1);
-
+        hanoiMethod(firstTower,helpTower,lastTower,firstTower.size());
+    }
+    private static void hanoiMethod(Stack<Integer> firstTower, Stack<Integer> helpTower, Stack<Integer> lastTower, int count) {
+        if(count > 0){
+            hanoiMethod(firstTower,lastTower,helpTower,count-1);
+            int lowest = firstTower.pop();
+            lastTower.push(lowest);
+            System.out.println(firstTower);
+            System.out.println(helpTower);
+            System.out.println(lastTower);
+            System.out.println();
+            hanoiMethod(helpTower,firstTower,lastTower,count-1);
         }
     }
-
-
 }

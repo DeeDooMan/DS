@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 public class Test4_4WithScanner {
     public static void main(String[] args) throws InputMismatchException {
         ArrayList <BankAccount> bankList = new ArrayList<BankAccount>();
@@ -21,6 +20,9 @@ public class Test4_4WithScanner {
 
             Collections.sort(bankList, myComparator);
             Collections.reverse(bankList);
+            System.out.println("Хотите увидеть результат? (1-да, 0-нет)");
+            int i = scanner.nextInt();
+            if(i==1){
             System.out.println("Учетная запись которая имеет наибольший баланс:");
             System.out.println(bankList.get(0).toString());
             System.out.println();
@@ -31,7 +33,7 @@ public class Test4_4WithScanner {
                     System.out.println(list.toString());
                 }
             System.out.println();
+            check = false;}
         }
         }
-
 }

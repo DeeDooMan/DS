@@ -11,7 +11,6 @@ public class Test1_1 {
             System.out.println();
         }
         System.out.println();
-
         System.out.println("Матрица после транспонирования по главной диагонали:");
         for (int i=0 ; i<array.length; i++){
             for (int j=0; j<array.length; j++){
@@ -25,7 +24,6 @@ public class Test1_1 {
             System.out.println();
         }
         System.out.println();
-
         System.out.println("Матрица после транспонирования по побочной диагонали:");
         for (int i=array.length-1 ; i>=0; i--){
             for (int j=array.length-1; j>=0; j--){
